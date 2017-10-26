@@ -19,8 +19,8 @@ local function parse(txt)
                     end
                     treePos = treePos.back
                 end
-                treePos[#tree + 1] = {nextWord, {ty = "condition"}, {}, back = treePos}
-                treePos = treePos[#tree]
+                treePos[#treePos + 1] = {nextWord, {ty = "condition"}, {}, back = treePos}
+                treePos = treePos[#treePos]
                 treePos[2].back = treePos
                 treePos[3].back = treePos
                 treePos = treePos[2]
@@ -36,4 +36,5 @@ local function parse(txt)
                 treePos = treePos[#treePos]
                 treePos[2].back = treePos
                 treePos = treePos[2]
-            elseif nextWord == "
+            elseif nextWord == "until" then
+                treePos[#treePos + 1] = {"until
